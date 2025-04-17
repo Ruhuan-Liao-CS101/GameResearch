@@ -42,7 +42,7 @@ jobs:
           name: TetrisGame-Windows
           path: dist/TetrisGame.exe
 
-  build-macos:
+  build-macos-intel:
     runs-on: macos-latest
 
     steps:
@@ -68,9 +68,42 @@ jobs:
           --add-data "scenes/avatars:scenes/avatars" \
           --add-data "scenes/backgrounds:scenes/backgrounds" \
           --add-data "scenes/avatars_data.json:scenes" \
-          --target-arch x86_64 main.py  # Specify Intel (x86_64) architecture
-      - name: Upload macOS Build
+          --target-arch x86_64 main.py  # Build for Intel architecture (x86_64)
+      - name: Upload macOS Intel Build
         uses: actions/upload-artifact@v4
         with:
-          name: TetrisGame-macOS
+          name: TetrisGame-macOS-Intel
+          path: dist/TetrisGame
+
+  build-macos-arm:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pygame pyinstaller  # Add any other dependencies your project needs
+      - name: List directory contents for debugging
+        run: |
+          ls -la
+          ls -la TetrisGame
+          ls -la scenes
+      - name: Build with PyInstaller for ARM architecture (M1/M2)
+        run: |
+          pyinstaller --name TetrisGame --windowed --onefile \
+          --add-data "TetrisGame/font:TetrisGame/font" \
+          --add-data "TetrisGame/img:TetrisGame/img" \
+          --add-data "scenes/avatars:scenes/avatars" \
+          --add-data "scenes/backgrounds:scenes/backgrounds" \
+          --add-data "scenes/avatars_data.json:scenes" \
+          --target-arch arm64 main.py  # Build for ARM architecture (M1/M2)
+      - name: Upload macOS ARM Build
+        uses: actions/upload-artifact@v4
+        with:
+          name: TetrisGame-macOS-ARM
           path: dist/TetrisGame
