@@ -84,42 +84,42 @@ jobs:
           path: dist/TetrisGame
 
   build-macos-intel:
-  runs-on: macos-latest
-  steps:
-    - uses: actions/checkout@v3
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
 
-    - name: Install Rosetta 2
-      run: |
-        /usr/sbin/softwareupdate --install-rosetta --agree-to-license
+      - name: Install Rosetta 2
+        run: |
+          /usr/sbin/softwareupdate --install-rosetta --agree-to-license
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: "3.11"
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
 
-    - name: Install dependencies (x86_64)
-      run: |
-        arch -x86_64 python -m pip install --upgrade pip
-        arch -x86_64 pip install pygame pyinstaller
+      - name: Install dependencies (x86_64)
+        run: |
+          arch -x86_64 python -m pip install --upgrade pip
+          arch -x86_64 pip install pygame pyinstaller
 
-    - name: List directory contents for debugging
-      run: |
-        ls -la
-        ls -la TetrisGame
-        ls -la scenes
+      - name: List directory contents for debugging
+        run: |
+          ls -la
+          ls -la TetrisGame
+          ls -la scenes
 
-    - name: Build with PyInstaller under Rosetta (Intel)
-      run: >
-        arch -x86_64 pyinstaller --name TetrisGame --windowed --onefile
-        --add-data "TetrisGame/font:TetrisGame/font"
-        --add-data "TetrisGame/img:TetrisGame/img"
-        --add-data "scenes/avatars:scenes/avatars"
-        --add-data "scenes/backgrounds:scenes/backgrounds"
-        --add-data "scenes/avatars_data.json:scenes"
-        main.py
+      - name: Build with PyInstaller under Rosetta (Intel)
+        run: >
+          arch -x86_64 pyinstaller --name TetrisGame --windowed --onefile
+          --add-data "TetrisGame/font:TetrisGame/font"
+          --add-data "TetrisGame/img:TetrisGame/img"
+          --add-data "scenes/avatars:scenes/avatars"
+          --add-data "scenes/backgrounds:scenes/backgrounds"
+          --add-data "scenes/avatars_data.json:scenes"
+          main.py
 
-    - name: Upload macOS Intel Build
-      uses: actions/upload-artifact@v4
-      with:
-        name: TetrisGame-macOS-Intel
-        path: dist/TetrisGame
+      - name: Upload macOS Intel Build
+        uses: actions/upload-artifact@v4
+        with:
+          name: TetrisGame-macOS-Intel
+          path: dist/TetrisGame
