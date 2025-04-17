@@ -60,15 +60,15 @@ jobs:
           ls -la
           ls -la TetrisGame
           ls -la scenes
-      - name: Build with PyInstaller for Intel architecture
+      - name: Build with PyInstaller for Intel architecture (x86_64)
         run: |
-          pyinstaller --name TetrisGame --windowed --onefile \
+          arch -x86_64 pyinstaller --name TetrisGame --windowed --onefile \
           --add-data "TetrisGame/font:TetrisGame/font" \
           --add-data "TetrisGame/img:TetrisGame/img" \
           --add-data "scenes/avatars:scenes/avatars" \
           --add-data "scenes/backgrounds:scenes/backgrounds" \
           --add-data "scenes/avatars_data.json:scenes" \
-          --target-arch x86_64 main.py  # Build for Intel architecture (x86_64)
+          main.py
       - name: Upload macOS Intel Build
         uses: actions/upload-artifact@v4
         with:
