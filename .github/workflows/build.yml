@@ -40,7 +40,7 @@ jobs:
           path: dist/TetrisGame.exe
 
   build-macos:
-    runs-on: macos-12 # Ensures Intel-based runner
+    runs-on: macos-12  # Ensures Intel-based runner for macOS
     steps:
       - uses: actions/checkout@v3
 
@@ -63,9 +63,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install pygame pyinstaller
 
-      - name: Build macOS .app Bundle
+      - name: Build macOS .app Bundle for Intel (x86_64 architecture)
         run: |
-          pyinstaller main.py --name TetrisGame --windowed \
+          arch -x86_64 pyinstaller main.py --name TetrisGame --windowed \
             --add-data "TetrisGame/font:TetrisGame/font" \
             --add-data "TetrisGame/img:TetrisGame/img" \
             --add-data "scenes/avatars:scenes/avatars" \
