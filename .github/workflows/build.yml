@@ -24,16 +24,18 @@ jobs:
           pip install pygame pyinstaller
           # Add any other dependencies your project needs
 
+      - name: List directory contents for debugging
+        run: |
+          dir
+          dir TetrisGame
+          dir scenes
+
       - name: Build with PyInstaller
         shell: cmd
         run: >
           pyinstaller --name TetrisGame --windowed --onefile
-          --add-data "TetrisGame/font/font.ttf;TetrisGame/font/"
-          --add-data "TetrisGame/img/background2.webp;TetrisGame/img/"
-          --add-data "TetrisGame/img/img1.webp;TetrisGame/img/"
-          --add-data "TetrisGame/img/photo1.jpeg;TetrisGame/img/"
-          --add-data "TetrisGame/main.py;TetrisGame/"
-          --add-data "TetrisGame/tetris_game.py;TetrisGame/"
+          --add-data "TetrisGame/font;TetrisGame/font"
+          --add-data "TetrisGame/img;TetrisGame/img"
           --add-data "scenes/avatars;scenes/avatars"
           --add-data "scenes/backgrounds;scenes/backgrounds"
           --add-data "scenes/avatars_data.json;scenes"
