@@ -1,29 +1,69 @@
-build-macos:
-  runs-on: macos-12 # Ensures Intel architecture
-  steps:
-    - uses: actions/checkout@v3
+name: Build Game Executables
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: "3.11"
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install pygame pyinstaller
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
 
-    - name: Build macOS .app bundle
-      run: |
-        pyinstaller main.py --name TetrisGame --windowed \
-          --add-data "TetrisGame/font:TetrisGame/font" \
-          --add-data "TetrisGame/img:TetrisGame/img" \
-          --add-data "scenes/avatars:scenes/avatars" \
-          --add-data "scenes/backgrounds:scenes/backgrounds" \
-          --add-data "scenes/avatars_data.json:scenes"
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
 
-    - name: Upload macOS .app Bundle
-      uses: actions/upload-artifact@v4
-      with:
-        name: TetrisGame-macOS-App
-        path: dist/TetrisGame.app
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pygame pyinstaller
+
+      - name: Build Windows Executable (.exe)
+        run: |
+          pyinstaller main.py --name TetrisGame --windowed --onefile ^
+            --add-data "TetrisGame/font;TetrisGame/font" ^
+            --add-data "TetrisGame/img;TetrisGame/img" ^
+            --add-data "scenes/avatars;scenes/avatars" ^
+            --add-data "scenes/backgrounds;scenes/backgrounds" ^
+            --add-data "scenes/avatars_data.json;scenes"
+
+      - name: Upload Windows Executable
+        uses: actions/upload-artifact@v4
+        with:
+          name: TetrisGame-Windows
+          path: dist/TetrisGame.exe
+
+  build-macos:
+    runs-on: macos-12 # Ensures Intel architecture
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pygame pyinstaller
+
+      - name: Build macOS .app Bundle
+        run: |
+          pyinstaller main.py --name TetrisGame --windowed \
+            --add-data "TetrisGame/font:TetrisGame/font" \
+            --add-data "TetrisGame/img:TetrisGame/img" \
+            --add-data "scenes/avatars:scenes/avatars" \
+            --add-data "scenes/backgrounds:scenes/backgrounds" \
+            --add-data "scenes/avatars_data.json:scenes"
+
+      - name: Upload macOS .app Bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: TetrisGame-macOS-App
+          path: dist/TetrisGame.app
