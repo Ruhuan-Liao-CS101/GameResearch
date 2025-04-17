@@ -1,0 +1,162 @@
+[
+    {
+        "id": "Jenna",
+        "name": "Mayor Jenna",
+        "role": "Mayor",
+        "description": "Focused on revitalizing the local economy and government services.",
+        "questions": [
+            {
+                "question": "Given our limited budget, what would you prioritize for immediate repair?",
+                "answer": "Our top priority should be to clear the main roads as soon as possible. These routes are essential for getting emergency supplies and aid workers into the town and for allowing residents to access essential services. Additionally, restoring power to emergency centers is critical for medical and communication needs."
+            },
+            {
+                "question": "With the risk of future storms, what's a top resilience investment?",
+                "answer": "Investing in flood barriers around key infrastructure and strengthening the town's power grid by reinforcing poles, upgrading transformers, and installing backup generators."
+            },
+            {
+                "question": "Have you attended any recent conferences?",
+                "answer": "Yes, I attended an urban planning conference last month, focusing on disaster response, resilience strategies, and eco-friendly infrastructure."
+            }
+        ]
+    },
+    {
+        "id": "George",
+        "name": "George",
+        "role": "School Principal",
+        "description": "Committed to reopening schools and ensuring safe access to education for children.",
+        "questions": [
+            {
+                "question": "What should we prioritize to get students back in school quickly?",
+                "answer": "Repairing water damage in classrooms and clearing main roads to enable bus routes to resume safely."
+            },
+            {
+                "question": "What long-term improvements should we consider for school safety?",
+                "answer": "Reinforcing school buildings with stronger materials and creating an emergency supply room stocked with essentials."
+            },
+            {
+                "question": "What's your favorite book genre?",
+                "answer": "Historical fiction, as it inspires resilience and provides perspective through stories from the past."
+            }
+        ]
+    },
+    {
+        "id": "Jamal",
+        "name": "Jamal",
+        "role": "Factory Owner",
+        "description": "Advocates for restoring power and transportation to revive the industrial sector.",
+        "questions": [
+            {
+                "question": "What's the first thing we should fix to get the factory back up and running?",
+                "answer": "Restoring power to the factory is the most urgent need, followed by clearing debris and ensuring supply chain routes are accessible."
+            },
+            {
+                "question": "How can we prevent future disruptions to the factory from future storms?",
+                "answer": "Reinforcing the building's structure, investing in backup generators, and creating a flood barrier around the factory."
+            },
+            {
+                "question": "Are there plans for expanding the factory soon?",
+                "answer": "Not currently; the focus is on rebuilding and restoring what we already have before considering expansion."
+            }
+        ]
+    },
+    {
+        "id": "Maria",
+        "name": "Maria",
+        "role": "Community Leader",
+        "description": "Prioritizes healthcare and shelter for the elderly and vulnerable populations.",
+        "questions": [
+            {
+                "question": "How can we support elderly and vulnerable community members in need?",
+                "answer": "Restoring power to senior housing, ensuring functional heating and cooling systems, and providing backup generators for critical care facilities."
+            },
+            {
+                "question": "How can we address the needs of other vulnerable populations, such as the disabled or low-income families?",
+                "answer": "Prioritizing accessible shelters for people with disabilities and providing financial aid or food assistance to low-income families."
+            },
+            {
+                "question": "Have you considered hosting a town-wide event to lift people's spirits during the recovery?",
+                "answer": "Yes, hosting a concert or fair could strengthen morale once the situation stabilizes."
+            }
+        ]
+    },
+    {
+        "id": "Dorian",
+        "name": "Dorian Parker",
+        "role": "Parent",
+        "description": "Concentrated on family safety and restoring housing, schools, and community centers.",
+        "questions": [
+            {
+                "question": "What is your biggest concern as a parent during the recovery?",
+                "answer": "Ensuring a safe place for children to live, access to care, and support for their mental and emotional well-being."
+            },
+            {
+                "question": "How can we make the community safe for families?",
+                "answer": "Restoring essential services, rebuilding safe housing, clearing public spaces, and providing mental health support."
+            },
+            {
+                "question": "How do you usually spend your weekends?",
+                "answer": "Hiking with my kids, but currently focusing on recovery efforts and finding a safe place to live."
+            }
+        ]
+    },
+    {
+        "id": "Claire",
+        "name": "Claire",
+        "role": "Restaurant Owner",
+        "description": "Stressed by business closures and seeks quick reopening of small businesses and restoration of clean water and food distribution.",
+        "questions": [
+            {
+                "question": "What infrastructure is needed for restaurants to reopen?",
+                "answer": "Restoring power and water supply, clearing debris, and fixing structural damage to ensure safety."
+            },
+            {
+                "question": "What can we do to help ensure there's a steady food supply for the community during recovery?",
+                "answer": "Restoring supply chain routes and establishing temporary food distribution points."
+            },
+            {
+                "question": "Have you thought about offering a new special on your menu to attract customers once you reopen?",
+                "answer": "Yes, but only after ensuring the restaurant is operational and community needs are met."
+            }
+        ]
+    },
+    {
+        "id": "Liam",
+        "name": "Liam Moore",
+        "role": "Police Officer",
+        "description": "Focused on public safety, law enforcement, and restoring roads and communication for emergency services.",
+        "questions": [
+            {
+                "question": "What should we prioritize to ensure public safety as we begin the recovery?",
+                "answer": "Restoring roads and communication networks, securing essential infrastructure, and patrolling neighborhoods to prevent looting."
+            },
+            {
+                "question": "What additional support do you need to maintain security and assist with recovery efforts?",
+                "answer": "More manpower, resources, cleared debris, and coordination with national agencies."
+            },
+            {
+                "question": "Do you have any favorite hobbies outside of work?",
+                "answer": "Reading mystery novels and watching detective shows, though the focus is currently on recovery efforts."
+            }
+        ]
+    },
+    {
+        "id": "Owen",
+        "name": "Owen Harper",
+        "role": "Farmer",
+        "description": "Advocates for repairing rural infrastructure to restore agricultural production and ensure food security.",
+        "questions": [
+            {
+                "question": "What is the most urgent need for the agricultural community?",
+                "answer": "Restoring access to water and repairing irrigation systems, along with clearing roads for supplies and transportation."
+            },
+            {
+                "question": "What long-term improvements should we consider for agricultural resilience?",
+                "answer": "Investing in flood protection, strengthening irrigation systems, and diversifying crop types."
+            },
+            {
+                "question": "What's your favorite type of animal to raise on the farm?",
+                "answer": "Cows for dairy, though the focus is on crop restoration for now."
+            }
+        ]
+    }
+]
