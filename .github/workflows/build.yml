@@ -5,7 +5,7 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
-  workflow_dispatch: # Allows manual triggering
+  workflow_dispatch:
 
 jobs:
   build-windows:
@@ -23,13 +23,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install pygame pyinstaller
 
-      - name: List directory contents for debugging
+      - name: Debug file structure
         run: |
           dir
           dir TetrisGame
           dir scenes
 
-      - name: Build with PyInstaller
+      - name: Build Windows Executable
         run: |
           pyinstaller main.py --name TetrisGame --windowed --onefile ^
             --add-data "TetrisGame/font;TetrisGame/font" ^
@@ -59,13 +59,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install pygame pyinstaller
 
-      - name: List directory contents for debugging
+      - name: Debug file structure
         run: |
           ls -la
           ls -la TetrisGame
           ls -la scenes
 
-      - name: Build with PyInstaller
+      - name: Build macOS Executable (Intel)
         run: |
           pyinstaller main.py --name TetrisGame --windowed --onefile \
             --add-data "TetrisGame/font:TetrisGame/font" \
