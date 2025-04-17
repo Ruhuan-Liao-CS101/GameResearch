@@ -24,13 +24,14 @@ jobs:
           pip install pygame pyinstaller
 
       - name: Build Windows Executable (.exe)
-        run: |
+        shell: cmd
+        run: >
           pyinstaller main.py --name TetrisGame --windowed --onefile ^
-            --add-data "TetrisGame/font;TetrisGame/font" ^
-            --add-data "TetrisGame/img;TetrisGame/img" ^
-            --add-data "scenes/avatars;scenes/avatars" ^
-            --add-data "scenes/backgrounds;scenes/backgrounds" ^
-            --add-data "scenes/avatars_data.json;scenes"
+          --add-data "TetrisGame/font;TetrisGame/font" ^
+          --add-data "TetrisGame/img;TetrisGame/img" ^
+          --add-data "scenes/avatars;scenes/avatars" ^
+          --add-data "scenes/backgrounds;scenes/backgrounds" ^
+          --add-data "scenes/avatars_data.json;scenes"
 
       - name: Upload Windows Executable
         uses: actions/upload-artifact@v4
@@ -39,7 +40,7 @@ jobs:
           path: dist/TetrisGame.exe
 
   build-macos:
-    runs-on: macos-12 # Ensures Intel architecture
+    runs-on: macos-12 # Ensures Intel-based runner, not Apple Silicon
     steps:
       - uses: actions/checkout@v3
 
@@ -65,5 +66,5 @@ jobs:
       - name: Upload macOS .app Bundle
         uses: actions/upload-artifact@v4
         with:
-          name: TetrisGame-macOS-App
+          name: TetrisGame-macOS
           path: dist/TetrisGame.app
