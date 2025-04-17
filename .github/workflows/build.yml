@@ -40,7 +40,7 @@ jobs:
           path: dist/TetrisGame.exe
 
   build-macos:
-    runs-on: macos-12 # Ensures Intel-based runner, not Apple Silicon
+    runs-on: macos-12 # Ensures Intel-based runner
     steps:
       - uses: actions/checkout@v3
 
@@ -48,6 +48,15 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: "3.11"
+
+      # Cache Python dependencies to speed up future builds
+      - name: Cache Python dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-python-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-python-
 
       - name: Install dependencies
         run: |
