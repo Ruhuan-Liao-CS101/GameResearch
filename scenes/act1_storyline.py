@@ -47,7 +47,7 @@ class StorylineScene:
             "Roads are flooded, buildings are damaged, and critical services like electricity, water, and communication "
             "are severely disrupted. You're taking on the role of a Reconstruction Specialist tasked with coordinating "
             "the town's recovery efforts. With limited resources, you must interview key community representatives to "
-            "understand their priorities and gather crucial insights. They will then need to make decisions on how to allocate "
+            "understand their priorities and gather crucial insights. You will then need to make decisions on how to allocate "
             "resources and which parts of the town should be rebuilt first. Balancing immediate needs with long-term recovery "
             "goals will be essential as you weigh each representative's input."
         )
