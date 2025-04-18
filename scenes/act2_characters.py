@@ -20,17 +20,17 @@ def resource_path(relative_path):
 def load_avatar_data():
     try:
         json_path = resource_path("scenes/avatars_data.json")
-        print(f"Attempting to load JSON from: {json_path}")
-        print(f"File exists: {os.path.exists(json_path)}")
+        # print(f"Attempting to load JSON from: {json_path}")
+        # print(f"File exists: {os.path.exists(json_path)}")
 
         if os.path.exists(json_path):
             with open(json_path, "r") as f:
                 data = json.load(f)
                 # Print first 2 items for debugging
-                print(f"JSON loaded successfully: {data[:2]}")
+                # print(f"JSON loaded successfully: {data[:2]}")
                 return data
         else:
-            print(f"JSON file not found at path: {json_path}")
+            # print(f"JSON file not found at path: {json_path}")
             # Get the current directory contents for debugging
             print(f"Current directory: {os.getcwd()}")
             print(f"Files in current directory: {os.listdir('.')}")
@@ -101,7 +101,7 @@ class CharactersScene:
         if avatar_data and isinstance(avatar_data, list) and len(avatar_data) > 0:
             # Check if the first item has the required keys
             if all(key in avatar_data[0] for key in ["id", "name", "role"]):
-                print("Using loaded avatar data")
+                # print("Using loaded avatar data")
                 # We still need to ensure the image paths are correct
                 for avatar in avatar_data:
                     if "image" not in avatar:
@@ -145,7 +145,7 @@ class CharactersScene:
         self.hovered_avatar = None
 
     def handle_character_click(self, character_index):
-        print(f"Clicked character {character_index}")  # Debug print
+        # print(f"Clicked character {character_index}")  # Debug print
 
         # Store the selected avatar data
         self.game_state.selected_avatar = {

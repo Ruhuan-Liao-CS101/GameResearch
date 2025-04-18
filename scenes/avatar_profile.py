@@ -300,26 +300,26 @@ class AvatarProfile:
         """Load avatar data with proper resource path handling"""
         try:
             json_path = resource_path("scenes/avatars_data.json")
-            print(f"AvatarProfile: Attempting to load JSON from: {json_path}")
-            print(f"AvatarProfile: File exists: {os.path.exists(json_path)}")
+            # print(f"AvatarProfile: Attempting to load JSON from: {json_path}")
+            # print(f"AvatarProfile: File exists: {os.path.exists(json_path)}")
 
             if os.path.exists(json_path):
                 with open(json_path, 'r') as f:
                     data = json.load(f)
-                    print(f"AvatarProfile: Successfully loaded avatars_data.json")
+                    # print(f"AvatarProfile: Successfully loaded avatars_data.json")
                     return data
             else:
-                print(
-                    f"AvatarProfile: JSON file not found at path: {json_path}")
-                print(
-                    f"AvatarProfile: Directory contents: {os.listdir(os.path.dirname(json_path)) if os.path.exists(os.path.dirname(json_path)) else 'directory not found'}")
-                print(f"AvatarProfile: Using fallback avatar data")
+                # print(
+                #     f"AvatarProfile: JSON file not found at path: {json_path}")
+                # print(
+                #     f"AvatarProfile: Directory contents: {os.listdir(os.path.dirname(json_path)) if os.path.exists(os.path.dirname(json_path)) else 'directory not found'}")
+                # print(f"AvatarProfile: Using fallback avatar data")
                 return self.fallback_avatar_data
         except Exception as e:
-            print(f"AvatarProfile: Error loading avatars data: {e}")
+            # print(f"AvatarProfile: Error loading avatars data: {e}")
             import traceback
             traceback.print_exc()
-            print(f"AvatarProfile: Using fallback avatar data")
+            # print(f"AvatarProfile: Using fallback avatar data")
             return self.fallback_avatar_data
 
     def wrap_text(self, text, font, max_width):

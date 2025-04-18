@@ -52,7 +52,7 @@ class FinalScene:
         try:
             bg_path = resource_path("TetrisGame/img/background2.webp")
             self.bg = pygame.image.load(bg_path).convert()
-            print(f"Successfully loaded background: {bg_path}")
+            # print(f"Successfully loaded background: {bg_path}")
         except Exception as e:
             print(f"Error loading background: {e}")
             self.bg = pygame.Surface((self.screen_width, self.screen_height))
