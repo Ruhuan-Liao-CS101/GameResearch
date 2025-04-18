@@ -80,7 +80,7 @@ jobs:
       - name: Upload macOS ARM Build
         uses: actions/upload-artifact@v4
         with:
-          name: TetrisGame-macOS-ARM
+          name: TetrisGame-macOS-ARM(M1/M2)
           path: dist/TetrisGame
 
   build-macos-intel:
